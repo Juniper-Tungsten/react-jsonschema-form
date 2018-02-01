@@ -1,6 +1,6 @@
 import toPath from "lodash.topath";
 import Ajv from "ajv";
-const ajv = new Ajv({
+export const ajv = new Ajv({
   errorDataPath: "property",
   allErrors: true,
 });
