@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import merge from "lodash.merge";
+import cloneDeep from "lodash.clonedeep";
 
 import UnsupportedField from "./UnsupportedField";
 import {
@@ -594,7 +596,7 @@ class ArrayField extends Component {
       canMoveDown = true,
       itemSchema,
       itemData,
-      itemUiSchema,
+      itemUiSchema: olriginalItemUiSchema,
       itemIdSchema,
       itemErrorSchema,
       autofocus,
@@ -619,6 +621,11 @@ class ArrayField extends Component {
       remove: removable && canRemove,
     };
     has.toolbar = Object.keys(has).some(key => has[key]);
+
+    const itemUiSchema = cloneDeep(olriginalItemUiSchema);
+    if (uiSchema.itemsInstances && uiSchema.itemsInstances[index]) {
+      merge(itemUiSchema, uiSchema.itemsInstances[index]);
+    }
 
     return {
       children: (

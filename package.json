@@ -42,6 +42,8 @@
   "dependencies": {
     "ajv": "^5.2.3",
     "lodash.topath": "^4.5.2",
+    "lodash.merge": "^4.5.2",
+    "lodash.clonedeep": "^4.5.0",
     "prop-types": "^15.5.8",
     "setimmediate": "^1.0.5"
   },
